@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="SampleData\ClassEndWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\ClassNotEndWithCommandHandler.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommandHandlerAttributes" Version="1.0.0.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.7.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.MSTest" Version="1.1.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.MSTest" Version="1.1.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing.MSTest" Version="1.1.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.Analyzer.Testing.MSTest" Version="1.1.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.CodeFix.Testing.MSTest" Version="1.1.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.CodeRefactoring.Testing.MSTest" Version="1.1.1" />
+		<PackageReference Include="System.CodeDom" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CommandHandlerAnalyzer.CodeFixes\CommandHandlerAnalyzer.CodeFixes.csproj" />
+		<ProjectReference Include="..\CommandHandlerAnalyzer\CommandHandlerAnalyzer.csproj" />
+	</ItemGroup>
+
+</Project>
