@@ -17,7 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandHandlerInterfaces", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandHandlerSample", "CommandHandlerSample\CommandHandlerSample.csproj", "{DF0CAFEF-09C4-4705-AA8F-C3E3CB0285AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandHandlerAttributes", "CommandHandlerAttributes\CommandHandlerAttributes.csproj", "{C8B9A35E-CD84-457F-AB1E-B5D6B085157A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandHandlerAttributes", "CommandHandlerAttributes\CommandHandlerAttributes.csproj", "{C8B9A35E-CD84-457F-AB1E-B5D6B085157A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repo", "Repo", "{489036C9-AB87-4890-A3CC-3C3C6FA9047A}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
