@@ -8,11 +8,11 @@ The solution builds several nuget packages that are used in projects in this sol
 1. Create a folder for NuGet packages.
 2. Create a new nuget source with source of the new folder.
 3. Build the CommandHandlerAttributes project.
-4. Copy nuget into nuget Folder.
+4. Copy nuget into nuget folder.
 5. Build the project CommandHandlerAnalyser.Package.
-6. Copy nuget into nuget Folder.
+6. Copy nuget into nuget folder.
 7. Build the CommandHandlerInterfaces project.
-8. Copy nuget into nuget Folder.
+8. Copy nuget into nuget folder.
 9. Build the project CommandHandlerSample.
 This should now fail due to the analyser.
 
