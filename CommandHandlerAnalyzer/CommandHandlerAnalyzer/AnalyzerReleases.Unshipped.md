@@ -5,4 +5,5 @@
 
 Rule ID | Category | Severity | Notes
 --------|----------|----------|-------
-CommandHandlerAnalyzer | Naming | Error | CommandHandlerAnalyzer
+NameEndsNotWithCommandHandlerAnalyzerId | Naming | Error | CommandHandlerAnalyzer
+NameEndsWithCommandHandlerAnalyzerId | Naming | Error | CommandHandlerAnalyzer

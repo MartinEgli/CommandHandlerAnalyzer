@@ -61,7 +61,7 @@ namespace CommandHandlerAnalyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name must end with CommandHandler..
+        ///   Looks up a localized string similar to Name must ends with CommandHandler..
         /// </summary>
         internal static string AnalyzerDescription {
             get {
@@ -70,7 +70,7 @@ namespace CommandHandlerAnalyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name &apos;{0}&apos; does not end with CommandHandler.
+        ///   Looks up a localized string similar to Name &apos;{0}&apos; does not ends with CommandHandler.
         /// </summary>
         internal static string AnalyzerMessageFormat {
             get {
@@ -79,7 +79,7 @@ namespace CommandHandlerAnalyzer {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name must end with CommandHandler.
+        ///   Looks up a localized string similar to Name must ends with CommandHandler.
         /// </summary>
         internal static string AnalyzerTitle {
             get {

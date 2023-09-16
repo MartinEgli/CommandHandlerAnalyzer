@@ -8,12 +8,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<EmbeddedResource Include="SampleData\Class3CommandHandler.cs" />
 		<EmbeddedResource Include="SampleData\ClassEndWithCommandHandler.cs" />
 		<EmbeddedResource Include="SampleData\ClassNotEndWithCommandHandler.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommandHandlerAttributes" Version="1.0.0.1" />
+		<PackageReference Include="CommandHandlerAttributes" Version="1.0.0.2" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
 		<PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
 		<PackageReference Include="MSTest.TestFramework" Version="3.1.1" />

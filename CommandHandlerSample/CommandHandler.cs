@@ -1,16 +1,20 @@
 ﻿using CommandHandlerInterfaces;
 
-namespace CommandHandlerSample
+namespace CommandHandlerSample;
+
+[CommandHandler]
+public class TestClass1 : ICommandHandler<bool>
 {
-    [CommandHandler]
-    public class TestClass1 : ICommandHandler<bool>
-    {
+}
 
-    }
+public class TestClass2 : ICommandHandler<bool>
+{
+}
 
+public class TestClass3
+{
+}
 
-    public class TestClass2 : ICommandHandler<bool>
-    {
-
-    }
+public class TestClass4CommandHandler
+{
 }

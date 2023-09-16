@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ConsoleApplication2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VerifyCS = CommandHandlerAnalyzer.Test.CSharpCodeFixVerifier<
     CommandHandlerAnalyzer.CommandHandlerAnalyzer,
@@ -43,7 +44,7 @@ public class CommandHandlerAnalyzerCodeFixUnitTest
     }";
 
         var expected = VerifyCS
-            .Diagnostic("CommandHandlerAnalyzer")
+            .Diagnostic(Rules.NameEndsWithCommandHandlerRule)
             .WithLocation(0)
             .WithArguments("TypeName");
 

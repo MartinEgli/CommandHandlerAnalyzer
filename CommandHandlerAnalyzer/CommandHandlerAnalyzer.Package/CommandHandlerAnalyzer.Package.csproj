@@ -9,7 +9,7 @@
 
 	<PropertyGroup>
 		<PackageId>CommandHandlerAnalyzer</PackageId>
-		<PackageVersion>1.0.0.10</PackageVersion>
+		<PackageVersion>1.0.0.18</PackageVersion>
 		<Authors>martin.egli</Authors>
 		<PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
 		<PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
@@ -29,7 +29,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommandHandlerAttributes" Version="1.0.0.1" />
+	  <PackageReference Include="CommandHandlerAttributes" Version="1.0.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>

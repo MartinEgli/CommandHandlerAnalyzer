@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnalyzerDescription" xml:space="preserve">
-    <value>Name must end with CommandHandler.</value>
+    <value>Name must ends with CommandHandler.</value>
     <comment>An optional longer localizable description of the diagnostic.</comment>
   </data>
   <data name="AnalyzerMessageFormat" xml:space="preserve">
-    <value>Name '{0}' does not end with CommandHandler</value>
+    <value>Name '{0}' does not ends with CommandHandler</value>
     <comment>The format-able message the diagnostic displays.</comment>
   </data>
   <data name="AnalyzerTitle" xml:space="preserve">
-    <value>Name must end with CommandHandler</value>
+    <value>Name must ends with CommandHandler</value>
     <comment>The title of the diagnostic.</comment>
   </data>
 </root>

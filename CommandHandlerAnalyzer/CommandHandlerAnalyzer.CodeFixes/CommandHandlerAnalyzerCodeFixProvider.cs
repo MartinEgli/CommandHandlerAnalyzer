@@ -17,7 +17,7 @@ namespace CommandHandlerAnalyzer
     public class CommandHandlerAnalyzerCodeFixProvider : CodeFixProvider
     {
         public sealed override ImmutableArray<string> FixableDiagnosticIds =>
-            ImmutableArray.Create(CommandHandlerAnalyzer.DiagnosticId);
+            ImmutableArray.Create(Rules.NameEndsWithCommandHandlerAnalyzerId);
 
         public sealed override FixAllProvider GetFixAllProvider()
         {

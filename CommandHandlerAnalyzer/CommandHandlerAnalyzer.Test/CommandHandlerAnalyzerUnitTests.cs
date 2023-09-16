@@ -26,7 +26,16 @@ namespace CommandHandlerAnalyzer.Test
         {
             var validEntity =
                 SampleDataLoader.LoadFromNamespaceOf<CommandHandlerAnalyzerUnitTest>("ClassNotEndWithCommandHandler.cs");
-            var compileError = CompilerError(CommandHandlerAnalyzer.DiagnosticId).WithSpan(5, 16, 5, 24);
+            var compileError = CompilerError(Rules.NameEndsWithCommandHandlerAnalyzerId).WithSpan(5, 16, 5, 24);
+            await VerifyCS.VerifyAnalyzerAsync(validEntity, ShouldEmitIssues(compileError));
+        }
+
+        [TestMethod]
+        public async Task CommandHandlerAnalyzer_ClassEndWithCommandHandler_EmitsError()
+        {
+            var validEntity =
+                SampleDataLoader.LoadFromNamespaceOf<CommandHandlerAnalyzerUnitTest>("Class3CommandHandler.cs");
+            var compileError = CompilerError(Rules.NameEndsNotWithCommandHandlerAnalyzerId).WithSpan(3, 14, 3, 34);
             await VerifyCS.VerifyAnalyzerAsync(validEntity, ShouldEmitIssues(compileError));
         }
 

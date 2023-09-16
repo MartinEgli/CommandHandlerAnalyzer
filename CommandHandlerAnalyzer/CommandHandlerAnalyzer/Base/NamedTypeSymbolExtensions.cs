@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace CommandHandlerAnalyzer;
+namespace CommandHandlerAnalyzer.Base;
 
 public static class NamedTypeSymbolExtensions
 {
