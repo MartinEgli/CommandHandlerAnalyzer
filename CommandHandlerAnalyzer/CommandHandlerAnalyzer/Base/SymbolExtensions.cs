@@ -6,24 +6,53 @@ namespace CommandHandlerAnalyzer.Base;
 
 public static class SymbolExtensions
 {
-    public static bool Has<TAttribute>(this ITypeSymbol type) where TAttribute : Attribute
+    public static bool Has<TAttribute>(this ITypeSymbol symbol) where TAttribute : Attribute
     {
-        return type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        var result = symbol.HasType<TAttribute>() || symbol.HasBaseType<TAttribute>() || symbol.HasInterfaces<TAttribute>();
+        return result;
     }
+
+
+    public static bool Has<TAttribute>(this IPropertySymbol symbol) where TAttribute : Attribute
+    {
+        
+        var type = symbol.Type;
+        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        return result;
+    }
+
+    public static bool Has<TAttribute>(this IFieldSymbol symbol) where TAttribute : Attribute
+    {
+
+        var type = symbol.Type;
+        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        return result;
+    }
+
+    public static bool Has<TAttribute>(this IParameterSymbol symbol) where TAttribute : Attribute
+    {
+        var type = symbol.Type;
+        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        return result;
+    }
+
 
     private static bool HasInterfaces<TAttribute>(this ITypeSymbol type) where TAttribute : Attribute
     {
-        return Enumerable.Any(type.Interfaces, @interface => @interface.Has<TAttribute>());
+        var result = Enumerable.Any(type.Interfaces, @interface => @interface.Has<TAttribute>());
+        return result;
     }
 
     private static bool HasBaseType<TAttribute>(this ITypeSymbol type) where TAttribute : Attribute
     {
-        return type.BaseType != null && type.BaseType is not object && type.BaseType.Has<TAttribute>();
+        var result = type.BaseType != null && type.BaseType is not object && type.BaseType.Has<TAttribute>();
+        return result;
     }
 
     private static bool HasType<TAttribute>(this ISymbol type) where TAttribute : Attribute
     {
-        return type.GetAttributes().Any(it => it.AttributeClass!.Name.Equals(typeof(TAttribute).Name));
+        var result = type.GetAttributes().Any(it => it.AttributeClass!.Name.Equals(typeof(TAttribute).Name));
+        return result;
     }
 
     public static Diagnostic Diagnostic(

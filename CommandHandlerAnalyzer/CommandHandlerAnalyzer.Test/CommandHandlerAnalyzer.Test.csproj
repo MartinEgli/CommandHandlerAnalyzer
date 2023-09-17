@@ -8,7 +8,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="SampleData\ParameterEndsNotWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\ParameterEndsWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\PropertyEndsWithCommandHandler.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<EmbeddedResource Include="SampleData\Class3CommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\ParameterEndsNotWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\ParameterEndsWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\PropertyEndsWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\PropertyEndsNotWithCommandHandler.cs" />
 		<EmbeddedResource Include="SampleData\ClassEndWithCommandHandler.cs" />
 		<EmbeddedResource Include="SampleData\ClassNotEndWithCommandHandler.cs" />
 	</ItemGroup>

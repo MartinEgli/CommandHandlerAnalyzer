@@ -7,3 +7,4 @@ Rule ID | Category | Severity | Notes
 --------|----------|----------|-------
 NameEndsNotWithCommandHandlerAnalyzerId | Naming | Error | CommandHandlerAnalyzer
 NameEndsWithCommandHandlerAnalyzerId | Naming | Error | CommandHandlerAnalyzer
+PropertyEndsWithCommandHandlerAnalyzerId | Naming | `<Undetected>` | Rules
