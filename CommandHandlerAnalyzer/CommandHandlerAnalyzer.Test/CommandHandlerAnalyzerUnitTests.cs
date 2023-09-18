@@ -77,4 +77,27 @@ public class CommandHandlerAnalyzerUnitTest
         var compileError = CompilerError(Rules.ParameterEndsNotWithCommandHandlerAnalyzerId).WithSpan(7, 30, 7, 54);
         await VerifyCS.VerifyAnalyzerAsync(validEntity, ShouldEmitIssues(compileError));
     }
+
+    [TestMethod]
+    public async Task CommandHandlerAnalyzer_LocalEndsWithCommandHandler_EmitsError()
+    {
+        var validEntity =
+            SampleDataLoader.LoadFromNamespaceOf<CommandHandlerAnalyzerUnitTest>(
+                "LocalEndsWithCommandHandler.cs");
+        var compileError = CompilerError(Rules.LocalEndsWithCommandHandlerAnalyzerId).WithSpan(9, 13, 9, 17);
+        await VerifyCS.VerifyAnalyzerAsync(validEntity, ShouldEmitIssues(compileError));
+    }
+
+
+    [TestMethod]
+    public async Task CommandHandlerAnalyzer_LocalEndsNouWithCommandHandler_EmitsError()
+    {
+        var validEntity =
+            SampleDataLoader.LoadFromNamespaceOf<CommandHandlerAnalyzerUnitTest>(
+                "LocalEndsNotWithCommandHandler.cs");
+        var compileError = CompilerError(Rules.LocalEndsNotWithCommandHandlerAnalyzerId).WithSpan(9, 13, 9, 31);
+        await VerifyCS.VerifyAnalyzerAsync(validEntity, ShouldEmitIssues(compileError));
+    }
 }
+
+

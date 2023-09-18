@@ -15,6 +15,8 @@ public static class Rules
     public const string FieldEndsNotWithCommandHandlerAnalyzerId = "FieldEndsNotWithCommandHandlerAnalyzerId";
     public const string ParameterEndsWithCommandHandlerAnalyzerId = "ParameterEndsWithCommandHandlerAnalyzerId";
     public const string ParameterEndsNotWithCommandHandlerAnalyzerId = "ParameterFieldEndsNotWithCommandHandlerAnalyzerId";
+    public const string LocalEndsWithCommandHandlerAnalyzerId = "LocalEndsWithCommandHandlerAnalyzerId";
+    public const string LocalEndsNotWithCommandHandlerAnalyzerId = "LocalFieldEndsNotWithCommandHandlerAnalyzerId";
     private const string Category = "Naming";
 
     public static readonly DiagnosticDescriptor NameEndsWithCommandHandlerRule = CreateDescriptor(
@@ -61,6 +63,19 @@ public static class Rules
 
     public static readonly DiagnosticDescriptor ParameterEndsNotWithCommandHandlerRule = CreateDescriptor(
         ParameterEndsNotWithCommandHandlerAnalyzerId,
+        Resource(nameof(AnalyzerTitle)),
+        Resource(nameof(AnalyzerMessageFormat)),
+        Resource(nameof(AnalyzerDescription)));
+
+
+    public static readonly DiagnosticDescriptor LocalEndsWithCommandHandlerRule = CreateDescriptor(
+        LocalEndsWithCommandHandlerAnalyzerId,
+        Resource(nameof(AnalyzerTitle)),
+        Resource(nameof(AnalyzerMessageFormat)),
+        Resource(nameof(AnalyzerDescription)));
+
+    public static readonly DiagnosticDescriptor LocalEndsNotWithCommandHandlerRule = CreateDescriptor(
+        LocalEndsNotWithCommandHandlerAnalyzerId,
         Resource(nameof(AnalyzerTitle)),
         Resource(nameof(AnalyzerMessageFormat)),
         Resource(nameof(AnalyzerDescription)));

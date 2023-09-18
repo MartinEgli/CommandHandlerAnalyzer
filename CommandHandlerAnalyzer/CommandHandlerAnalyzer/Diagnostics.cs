@@ -8,70 +8,88 @@ namespace CommandHandlerAnalyzer;
 public static class Diagnostics
 {
     public static void AnalyzeNameEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this INamedTypeSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<INamedTypeSymbol, Diagnostic> onViolation)
     {
-        var symbol = (INamedTypeSymbol)context.Symbol;
-        if (!symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (!symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
     public static void AnalyzeNameEndsNotWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this INamedTypeSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<INamedTypeSymbol, Diagnostic> onViolation)
     {
-        var symbol = (INamedTypeSymbol)context.Symbol;
-        if (symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
     public static void AnalyzePropertyEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this IPropertySymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<IPropertySymbol, Diagnostic> onViolation)
     {
-        var symbol = (IPropertySymbol)context.Symbol;
-        if (!symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (!symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
 
     public static void AnalyzePropertyNotEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this IPropertySymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<IPropertySymbol, Diagnostic> onViolation)
     {
-        var symbol = (IPropertySymbol)context.Symbol;
-        if (symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
     public static void AnalyzeFieldEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this IFieldSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<IFieldSymbol, Diagnostic> onViolation)
     {
-        var symbol = (IFieldSymbol)context.Symbol;
-        if (!symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (!symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
 
     public static void AnalyzeFieldNotEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this IFieldSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<IFieldSymbol, Diagnostic> onViolation)
     {
-        var symbol = (IFieldSymbol)context.Symbol;
-        if (symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
     public static void AnalyzeParameterEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this IParameterSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<IParameterSymbol, Diagnostic> onViolation)
     {
-        var symbol = (IParameterSymbol)context.Symbol;
-        if (!symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (!symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
 
     public static void AnalyzeParameterNotEndsWithCommandHandler(
-        this SymbolAnalysisContext context,
+        this IParameterSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
         Func<IParameterSymbol, Diagnostic> onViolation)
     {
-        var symbol = (IParameterSymbol)context.Symbol;
-        if (symbol.IsNameEndingWithCommandHandler()) context.ReportDiagnostic(onViolation(symbol));
+        if (symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
+    }
+
+
+    public static void AnalyzeLocalEndsWithCommandHandler(
+        this ILocalSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
+        Func<ILocalSymbol, Diagnostic> onViolation)
+    {
+        if (!symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
+    }
+
+
+    public static void AnalyzeLocalNotEndsWithCommandHandler(
+        this ILocalSymbol symbol,
+        Action<Diagnostic> reportDiagnostic,
+        Func<ILocalSymbol, Diagnostic> onViolation)
+    {
+        if (symbol.IsNameEndingWithCommandHandler()) reportDiagnostic(onViolation(symbol));
     }
 
 
@@ -95,7 +113,7 @@ public static class Diagnostics
     {
         return symbol.Diagnostic(Rules.PropertyEndsWithCommandHandlerRule, parameters);
     }
-    
+
     public static Diagnostic ViolatesPropertyNotEndsWithCommandHandler(
         this IPropertySymbol symbol,
         params object[] parameters)
@@ -129,5 +147,19 @@ public static class Diagnostics
         params object[] parameters)
     {
         return symbol.Diagnostic(Rules.ParameterEndsNotWithCommandHandlerRule, parameters);
+    }
+
+    public static Diagnostic ViolatesLocalEndsWithCommandHandler(
+        this ILocalSymbol symbol,
+        params object[] parameters)
+    {
+        return symbol.Diagnostic(Rules.LocalEndsWithCommandHandlerRule, parameters);
+    }
+
+    public static Diagnostic ViolatesLocalNotEndsWithCommandHandler(
+        this ILocalSymbol symbol,
+        params object[] parameters)
+    {
+        return symbol.Diagnostic(Rules.LocalEndsNotWithCommandHandlerRule, parameters);
     }
 }

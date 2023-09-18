@@ -25,6 +25,8 @@ public class TestClass5 : INotifyPropertyChanged
 {
     private ICommandHandler<bool> _property1;
     private ICommandHandler<bool> _property2CommandHandler;
+    private ICommandHandler<bool> commandHandler;
+    private ICommandHandler<bool> _commandHandler;
     private bool _property3CommandHandler;
 
     public ICommandHandler<bool> Property1
@@ -61,18 +63,29 @@ public class TestClass5 : INotifyPropertyChanged
         return true;
     }
 
-    private void Method(ICommandHandler<bool> parameter1)
+    private void Method1(ICommandHandler<bool> parameter1)
     {
         var x = parameter1;
     }
 
-    private void Method(bool parameter1CommandHandler)
+    private void Method2(ICommandHandler<bool> parameter1)
+    {
+        var commandHandler = parameter1;
+    }
+
+    private void Method3(ICommandHandler<bool> parameter1)
+    {
+        var xCommandHandler = parameter1;
+    }
+
+
+    private void Method4(bool parameter1CommandHandler)
     {
         var x = parameter1CommandHandler;
     }
 
-    private void Method(string parameter)
+    private void Method5(string parameter)
     {
-        var x = parameter;
+        var xCommandHandler = parameter;
     }
 }

@@ -13,7 +13,7 @@ public static class SymbolExtensions
     }
 
 
-    public static bool Has<TAttribute>(this IPropertySymbol symbol) where TAttribute : Attribute
+    public static bool HasType<TAttribute>(this IPropertySymbol symbol) where TAttribute : Attribute
     {
         
         var type = symbol.Type;
@@ -21,7 +21,7 @@ public static class SymbolExtensions
         return result;
     }
 
-    public static bool Has<TAttribute>(this IFieldSymbol symbol) where TAttribute : Attribute
+    public static bool HasType<TAttribute>(this ILocalSymbol symbol) where TAttribute : Attribute
     {
 
         var type = symbol.Type;
@@ -29,7 +29,15 @@ public static class SymbolExtensions
         return result;
     }
 
-    public static bool Has<TAttribute>(this IParameterSymbol symbol) where TAttribute : Attribute
+    public static bool HasType<TAttribute>(this IFieldSymbol symbol) where TAttribute : Attribute
+    {
+
+        var type = symbol.Type;
+        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        return result;
+    }
+
+    public static bool HasType<TAttribute>(this IParameterSymbol symbol) where TAttribute : Attribute
     {
         var type = symbol.Type;
         var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
@@ -48,6 +56,8 @@ public static class SymbolExtensions
         var result = type.BaseType != null && type.BaseType is not object && type.BaseType.Has<TAttribute>();
         return result;
     }
+
+
 
     private static bool HasType<TAttribute>(this ISymbol type) where TAttribute : Attribute
     {
