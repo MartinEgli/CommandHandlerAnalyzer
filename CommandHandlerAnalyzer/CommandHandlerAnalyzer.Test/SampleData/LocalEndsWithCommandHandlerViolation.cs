@@ -2,11 +2,16 @@
 
 namespace PropertyEndWithCommandHandler;
 
-internal class Class1
+public class Class1
 {
-    public void Methode(ICommandHandler parameter1CommandHandler, ICommandHandler commandHandler)
+    public void Method1()
     {
+        var test = new ClassCommandHandler();
     }
+}
+
+public class ClassCommandHandler : ICommandHandler
+{
 }
 
 [CommandHandler]

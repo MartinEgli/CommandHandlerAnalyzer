@@ -27,6 +27,10 @@ namespace CommandHandlerAnalyzer.Test
             {
                 TestCode = source,
                 FixedCode = fixedSource,
+                TestState =
+                {
+                    AdditionalReferences = { "CommandHandlerAttributes.dll" }
+                }
             };
 
             test.ExpectedDiagnostics.AddRange(expected);

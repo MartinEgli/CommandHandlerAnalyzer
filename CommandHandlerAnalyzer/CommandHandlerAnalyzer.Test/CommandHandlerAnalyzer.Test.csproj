@@ -8,23 +8,35 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="SampleData\LocalEndsNotWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\FieldEndsNotWithCommandHandlerViolation.cs" />
+	  <Compile Remove="SampleData\FieldEndsWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\FieldEndsWithCommandHandlerViolation.cs" />
+	  <Compile Remove="SampleData\LocalEndsNotWithCommandHandlerViolation.cs" />
 	  <Compile Remove="SampleData\LocalEndsWithCommandHandler.cs" />
-	  <Compile Remove="SampleData\ParameterEndsNotWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\LocalEndsWithCommandHandlerViolation.cs" />
+	  <Compile Remove="SampleData\ParameterEndsNotWithCommandHandlerViolation.cs" />
 	  <Compile Remove="SampleData\ParameterEndsWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\ParameterEndsWithCommandHandlerViolation.cs" />
 	  <Compile Remove="SampleData\PropertyEndsWithCommandHandler.cs" />
+	  <Compile Remove="SampleData\PropertyEndsWithCommandHandlerViolation.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Include="SampleData\Class3CommandHandler.cs" />
-		<EmbeddedResource Include="SampleData\ParameterEndsNotWithCommandHandler.cs" />
-		<EmbeddedResource Include="SampleData\ParameterEndsWithCommandHandler.cs" />
-		<EmbeddedResource Include="SampleData\LocalEndsNotWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\ClassEndWithCommandHandlerViolation.cs" />
 		<EmbeddedResource Include="SampleData\LocalEndsWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\ParameterEndsNotWithCommandHandlerViolation.cs" />
+		<EmbeddedResource Include="SampleData\ParameterEndsWithCommandHandlerViolation.cs" />
+		<EmbeddedResource Include="SampleData\ParameterEndsWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\LocalEndsNotWithCommandHandlerViolation.cs" />
+		<EmbeddedResource Include="SampleData\LocalEndsWithCommandHandlerViolation.cs" />
+		<EmbeddedResource Include="SampleData\FieldEndsNotWithCommandHandlerViolation.cs" />
+		<EmbeddedResource Include="SampleData\FieldEndsWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\FieldEndsWithCommandHandlerViolation.cs" />
+		<EmbeddedResource Include="SampleData\PropertyEndsWithCommandHandlerViolation.cs" />
 		<EmbeddedResource Include="SampleData\PropertyEndsWithCommandHandler.cs" />
-		<EmbeddedResource Include="SampleData\PropertyEndsNotWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\PropertyEndsNotWithCommandHandlerViolation.cs" />
 		<EmbeddedResource Include="SampleData\ClassEndWithCommandHandler.cs" />
-		<EmbeddedResource Include="SampleData\ClassNotEndWithCommandHandler.cs" />
+		<EmbeddedResource Include="SampleData\ClassNotEndWithCommandHandlerViolation.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

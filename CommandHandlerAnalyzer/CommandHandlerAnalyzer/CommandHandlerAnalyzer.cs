@@ -24,74 +24,74 @@ public class CommandHandlerAnalyzer : AttributeDiagnosticAnalyzer<CommandHandler
 
     protected override void Initialize(AttributeAnalysisContext<CommandHandlerAttribute> context)
     {
-        void TypeNameEndsWithCommandHandlerAnalyzer(INamedTypeSymbol it, Action<Diagnostic> reporter)
+        void TypeNameEndsWithCommandHandlerAnalyzer(INamedTypeSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeNameEndsWithCommandHandler(
+            symbol.AnalyzeNameEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesNameEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesNameEndsWithCommandHandler(s.Name));
         }
 
-        void TypeNameNotEndsWithCommandHandlerAnalyzer(INamedTypeSymbol it, Action<Diagnostic> reporter)
+        void TypeNameNotEndsWithCommandHandlerAnalyzer(INamedTypeSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeNameEndsNotWithCommandHandler(
+            symbol.AnalyzeNameEndsNotWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesNameEndsNotWithCommandHandler(symbol.Name));
+                s => s.ViolatesNameEndsNotWithCommandHandler(s.Name));
         }
 
-        void PropertyNameEndsWithCommandHandlerAnalyzer(IPropertySymbol it, Action<Diagnostic> reporter)
+        void PropertyNameEndsWithCommandHandlerAnalyzer(IPropertySymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzePropertyEndsWithCommandHandler(
+            symbol.AnalyzePropertyEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesPropertyEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesPropertyEndsWithCommandHandler(s.Name));
         }
 
-        void PropertyNameNotEndsWithCommandHandlerAnalyzer(IPropertySymbol it, Action<Diagnostic> reporter)
+        void PropertyNameNotEndsWithCommandHandlerAnalyzer(IPropertySymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzePropertyNotEndsWithCommandHandler(
+            symbol.AnalyzePropertyNotEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesPropertyNotEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesPropertyNotEndsWithCommandHandler(s.Name));
         }
 
-        void FieldNameEndsWithCommandHandlerAnalyzer(IFieldSymbol it, Action<Diagnostic> reporter)
+        void FieldNameEndsWithCommandHandlerAnalyzer(IFieldSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeFieldEndsWithCommandHandler(
+            symbol.AnalyzeFieldEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesFieldEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesFieldEndsWithCommandHandler(s.Name));
         }
 
-        void FieldNameNotEndsWithCommandHandlerAnalyzer(IFieldSymbol it, Action<Diagnostic> reporter)
+        void FieldNameNotEndsWithCommandHandlerAnalyzer(IFieldSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeFieldNotEndsWithCommandHandler(
+            symbol.AnalyzeFieldNotEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesFieldNotEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesFieldNotEndsWithCommandHandler(s.Name));
         }
 
-        void ParameterNameEndsWithCommandHandlerAnalyzer(IParameterSymbol it, Action<Diagnostic> reporter)
+        void ParameterNameEndsWithCommandHandlerAnalyzer(IParameterSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeParameterEndsWithCommandHandler(
+            symbol.AnalyzeParameterEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesParameterEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesParameterEndsWithCommandHandler(s.Name));
         }
 
-        void ParameterNameNotEndsWithCommandHandlerAnalyzer(IParameterSymbol it, Action<Diagnostic> reporter)
+        void ParameterNameNotEndsWithCommandHandlerAnalyzer(IParameterSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeParameterNotEndsWithCommandHandler(
+            symbol.AnalyzeParameterNotEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesParameterNotEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesParameterNotEndsWithCommandHandler(s.Name));
         }
 
-        void LocalNameEndsWithCommandHandlerAnalyzer(ILocalSymbol it, Action<Diagnostic> reporter)
+        void LocalNameEndsWithCommandHandlerAnalyzer(ILocalSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeLocalEndsWithCommandHandler(
+            symbol.AnalyzeLocalEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesLocalEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesLocalEndsWithCommandHandler(s.Name));
         }
 
-        void LocalNameNotEndsWithCommandHandlerAnalyzer(ILocalSymbol it, Action<Diagnostic> reporter)
+        void LocalNameNotEndsWithCommandHandlerAnalyzer(ILocalSymbol symbol, Action<Diagnostic> reporter)
         {
-            it.AnalyzeLocalNotEndsWithCommandHandler(
+            symbol.AnalyzeLocalNotEndsWithCommandHandler(
                 reporter,
-                symbol => symbol.ViolatesLocalNotEndsWithCommandHandler(symbol.Name));
+                s => s.ViolatesLocalNotEndsWithCommandHandler(s.Name));
         }
 
         context.RegisterSymbolNamedTypeHasAttributeAction(TypeNameEndsWithCommandHandlerAnalyzer);

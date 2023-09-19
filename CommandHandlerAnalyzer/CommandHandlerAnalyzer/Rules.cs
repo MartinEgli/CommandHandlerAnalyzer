@@ -67,7 +67,6 @@ public static class Rules
         Resource(nameof(AnalyzerMessageFormat)),
         Resource(nameof(AnalyzerDescription)));
 
-
     public static readonly DiagnosticDescriptor LocalEndsWithCommandHandlerRule = CreateDescriptor(
         LocalEndsWithCommandHandlerAnalyzerId,
         Resource(nameof(AnalyzerTitle)),

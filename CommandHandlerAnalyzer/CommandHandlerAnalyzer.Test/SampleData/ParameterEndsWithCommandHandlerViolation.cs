@@ -4,7 +4,7 @@ namespace PropertyEndWithCommandHandler;
 
 internal class Class1
 {
-    public void Methode(ICommandHandler parameter1CommandHandler, ICommandHandler commandHandler)
+    public void Methode(ICommandHandler parameter1)
     {
     }
 }

@@ -6,7 +6,8 @@ public class Class1
 {
     public void Method1()
     {
-        var test = new ClassCommandHandler();
+        var testCommandHandler = new ClassCommandHandler();
+        var commandHandler = new ClassCommandHandler();
     }
 }
 

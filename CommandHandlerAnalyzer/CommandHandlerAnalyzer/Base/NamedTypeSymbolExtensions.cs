@@ -4,34 +4,30 @@ namespace CommandHandlerAnalyzer.Base;
 
 public static class NamedTypeSymbolExtensions
 {
-    private const string CommandHandler = "CommandHandler";
-    private const string CommandHandler2 = "commandHandler";
-    private const string CommandHandler3 = "_commandHandler";
 
-
-    public static bool IsNameEndingWithCommandHandler(this INamedTypeSymbol symbol)
+    public static bool IsNameEndingWith(this INamedTypeSymbol symbol, string name1)
     {
-        return symbol.Name.EndsWith(CommandHandler);
+        return symbol.Name.EndsWith(name1);
     }
 
-    public static bool IsNameEndingWithCommandHandler(this IPropertySymbol symbol)
+    public static bool IsNameEndingWith(this IPropertySymbol symbol, string name1)
     {
-        return symbol.Name.EndsWith(CommandHandler);
+        return symbol.Name.EndsWith(name1);
     }
 
-    public static bool IsNameEndingWithCommandHandler(this IFieldSymbol symbol)
+    public static bool IsNameEndingWith(this IFieldSymbol symbol, string name1, string name2,
+        string name3)
     {
-        return symbol.Name.EndsWith(CommandHandler) || symbol.Name == CommandHandler2 || symbol.Name == CommandHandler3;
+        return symbol.Name.EndsWith(name1) || symbol.Name == name2 || symbol.Name == name3;
     }
 
-    public static bool IsNameEndingWithCommandHandler(this IParameterSymbol symbol)
+    public static bool IsNameEndingWith(this IParameterSymbol symbol, string name1, string name2)
     {
-        return symbol.Name.EndsWith(CommandHandler);
+        return symbol.Name.EndsWith(name1) || symbol.Name == name2;
     }
 
-    public static bool IsNameEndingWithCommandHandler(this ILocalSymbol symbol)
+    public static bool IsNameEndingWith(this ILocalSymbol symbol, string name1, string name2)
     {
-        return symbol.Name.EndsWith(CommandHandler) || symbol.Name == CommandHandler2;
+        return symbol.Name.EndsWith(name1) || symbol.Name == name2;
     }
-
 }

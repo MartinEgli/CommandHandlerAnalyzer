@@ -6,45 +6,49 @@ namespace CommandHandlerAnalyzer.Base;
 
 public static class SymbolExtensions
 {
-    public static bool Has<TAttribute>(this ITypeSymbol symbol) where TAttribute : Attribute
+    private static bool HasAttribute<TAttribute>(this ITypeSymbol symbol) where TAttribute : Attribute
     {
-        var result = symbol.HasType<TAttribute>() || symbol.HasBaseType<TAttribute>() || symbol.HasInterfaces<TAttribute>();
+        var result = symbol.HasType<TAttribute>() ||
+                     symbol.HasBaseType<TAttribute>() ||
+                     symbol.HasInterfaces<TAttribute>();
+        return result;
+    }
+
+    public static bool Has<TAttribute>(this INamedTypeSymbol symbol) where TAttribute : Attribute
+    {
+        var result = symbol.HasAttribute<TAttribute>();
         return result;
     }
 
 
     public static bool HasType<TAttribute>(this IPropertySymbol symbol) where TAttribute : Attribute
     {
-        
         var type = symbol.Type;
-        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        var result = type.HasAttribute<TAttribute>();
         return result;
     }
 
     public static bool HasType<TAttribute>(this ILocalSymbol symbol) where TAttribute : Attribute
     {
-
         var type = symbol.Type;
-        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        var result = type.HasAttribute<TAttribute>();
         return result;
     }
 
     public static bool HasType<TAttribute>(this IFieldSymbol symbol) where TAttribute : Attribute
     {
-
         var type = symbol.Type;
-        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        var result = type.HasAttribute<TAttribute>();
         return result;
     }
 
     public static bool HasType<TAttribute>(this IParameterSymbol symbol) where TAttribute : Attribute
     {
         var type = symbol.Type;
-        var result = type.HasType<TAttribute>() || type.HasBaseType<TAttribute>() || type.HasInterfaces<TAttribute>();
+        var result = type.HasAttribute<TAttribute>();
         return result;
     }
-
-
+    
     private static bool HasInterfaces<TAttribute>(this ITypeSymbol type) where TAttribute : Attribute
     {
         var result = Enumerable.Any(type.Interfaces, @interface => @interface.Has<TAttribute>());
@@ -57,8 +61,6 @@ public static class SymbolExtensions
         return result;
     }
 
-
-
     private static bool HasType<TAttribute>(this ISymbol type) where TAttribute : Attribute
     {
         var result = type.GetAttributes().Any(it => it.AttributeClass!.Name.Equals(typeof(TAttribute).Name));
@@ -70,6 +72,7 @@ public static class SymbolExtensions
         DiagnosticDescriptor descriptor,
         params object[] parameters)
     {
-        return Microsoft.CodeAnalysis.Diagnostic.Create(descriptor, symbol.Locations[0], parameters);
+        var result = Microsoft.CodeAnalysis.Diagnostic.Create(descriptor, symbol.Locations[0], parameters);
+        return result;
     }
 }

@@ -4,7 +4,8 @@ namespace PropertyEndWithCommandHandler;
 
 internal class Class1
 {
-    public ICommandHandler Property1 { get; set; }
+    public ICommandHandler Property1CommandHandler { get; set; }
+    public ICommandHandler CommandHandler { get; set; }
 }
 
 [CommandHandler]

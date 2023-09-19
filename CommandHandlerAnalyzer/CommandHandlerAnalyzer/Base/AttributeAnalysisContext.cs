@@ -59,15 +59,15 @@ public class AttributeAnalysisContext<TAttribute> where TAttribute : Attribute
 
     public void RegisterSyntaxNodePropertyTypeHasAttributeAction(Action<ILocalSymbol, Action<Diagnostic>> action)
     {
-        analysisContext.RegisterSyntaxNodeAction(HasLocalVariableTypeAttribute(action), SyntaxKind.LocalDeclarationStatement);
+        analysisContext.RegisterSyntaxNodeAction(HasLocalVariableTypeAttribute(action),
+            SyntaxKind.LocalDeclarationStatement);
     }
 
     public void RegisterSyntaxNodePropertyTypeHasNotAttributeAction(Action<ILocalSymbol, Action<Diagnostic>> action)
     {
-        analysisContext.RegisterSyntaxNodeAction(HasLocalVariableTypeNotAttribute(action), SyntaxKind.LocalDeclarationStatement);
+        analysisContext.RegisterSyntaxNodeAction(HasLocalVariableTypeNotAttribute(action),
+            SyntaxKind.LocalDeclarationStatement);
     }
-
-
 
     private static Action<SyntaxNodeAnalysisContext> HasLocalVariableTypeAttribute(
         Action<ILocalSymbol, Action<Diagnostic>> analyze)
